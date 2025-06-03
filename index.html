@@ -1,1 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magik - Como Jogar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="Magik_Icon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <script src="arrumador_de_rolagem.js"></script>
+    <div class="background-image"></div>
+    <div class="content-container">
+        <div class="background-image"></div>
+        <div class="content-container">
+            <header>
+                <h1>Magik</h1>
+            </header>
+
+            <main>
+
+                <nav class="navbar navbar-expand-lg custom-navbar transparent-box">
+                    <div class="container-fluid">
+                        <h2 id="topicos">Tópicos Abordados</h2>
+                        <div class="collapse navbar-collapse" id="navbarTopics">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="magik-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#info-geral">Informações Gerais</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#habilidades">Habilidades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#como-jogar">Como Jogar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#skins">Skins</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#contato">Contato</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <article class="transparent-box" id="info-geral">
+                    <h2>Informações Gerais</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th>Nome Completo</th>
+                            <td>Illyana Nikolievna Rasputina</td>
+                        </tr>
+                        <tr>
+                            <th>Função</th>
+                            <td>Duelista</td>
+                        </tr>
+                        <tr>
+                            <th>Dificuldade</th>
+                            <td class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Team-Up</th>
+                            <td>Pantera Negra</td>
+                        </tr>
+                        <tr>
+                            <th>Vida</th>
+                            <td>250</td>
+                        </tr>
+                    </table>
+
+                    <p id="magik-line">"I have mutant powers, and a little demonic magic too."</p>
+
+                </article>
+
+                <article class="transparent-box" id="habilidades">
+                    <h2>Habilidades</h2>
+                    <table class="info-table">
+
+                        <tr>
+                            <th class="tecla">Passiva</th>
+                            <th class="nome-skill">Força do Limbo</th>
+                            <td>
+                                Converte 30% do dano causado a inimigos em vida bônus para si mesma com o máximo de
+                                150 de vida bônus.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Q</th>
+                            <th class="nome-skill">Criança das Trevas</th>
+                            <td>
+                                Transforma-se na Criança das Trevas e ganha aprimoramentos em todas as habilidades
+                                durante 12 segundos.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Esquerdo</th>
+                            <th class="nome-skill">Espada Espiritual</th>
+                            <td>
+                                Golpeia a área frontal com a Espada Espiritual causando 65 de dano.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Direito</th>
+                            <th class="nome-skill">Corte de Magia</th>
+                            <td>
+                                Ataca pra frente com um corte áereo, pode carregar a habilidade por até 2 segundos
+                                causando 45 a 90 de dano (dano máximo atingido após 1,8 segundos de carga).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">E</th>
+                            <th class="nome-skill">Incursão Umbral</th>
+                            <td>
+                                Avança e levanta inimigos no ar causando 85 de dano.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Shift</th>
+                            <th class="nome-skill">Disco de Teleporte</th>
+                            <td>
+                                Salta através de um Disco de Teleporte para se teleportar por uma curta distância na
+                                direção do movimento. Torna-se invencível enquanto se teleporta.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Esquerdo</th>
+                            <th class="nome-skill">Turbilhão de Eldritch</th>
+                            <td>
+                                Gira enquanto usa a Espada Espiritual causando 45 de dano após sair de um Disco de
+                                Teleporte.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Direito</th>
+                            <th class="nome-skill">Furia do Demônio</th>
+                            <td>
+                                Invoca um demônio do Limbo por 4 segundos para atacar os inimigos após sair de um
+                                Disco de Teleporte, causando 20 a 320 de dano (dano máximo atingido quando o demônio
+                                acerta todos os ataques).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">V</th>
+                            <th class="nome-skill">Ataque Corpo a Corpo</th>
+                            <td>
+                                Golpeia frontalmente com a empunhadura da Espada Espiritual causando 35 de dano.
+                            </td>
+                        </tr>
+                    </table>
+                    <h2>Habilidades com Criança das Trevas</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th class="tecla">Botão Esquerdo</th>
+                            <th class="nome-skill">Espada Espiritual</th>
+                            <td>
+                                Golpeia a área frontal com a Espada Espiritual, cada golpe atinge três vezes
+                                causando 35 de dano por golpe, totalizando 105 de dano por ataque.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Direito</th>
+                            <th class="nome-skill">Corte de Magia</th>
+                            <td>
+                                Ataca pra frente com um corte áereo que viaja mais rápido, pode carregar a
+                                habilidade por até 2 segundos
+                                causando 90 a 180 de dano (dano máximo atingido após 1,8 segundos de carga).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">E</th>
+                            <th class="nome-skill">Incursão Umbral</th>
+                            <td>
+                                Avança, levanta e empurra inimigos no ar causando 115 de dano.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Shift</th>
+                            <th class="nome-skill">Disco de Teleporte</th>
+                            <td>
+                                Salta através de um Disco de Teleporte para se teleportar por uma curta distância na
+                                direção do movimento. Torna-se invencível enquanto se teleporta.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Esquerdo</th>
+                            <th class="nome-skill">Turbilhão de Eldritch</th>
+                            <td>
+                                Gira enquanto usa a Espada Espiritual atingindo 3 vezes causando 35 de dano por
+                                golpe após sair de um Disco de
+                                Teleporte.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th class="tecla">Botão Direito</th>
+                            <th class="nome-skill">Furia do Demônio</th>
+                            <td>
+                                Invoca um demônio do Limbo por 4 segundos para atacar os inimigos após sair de um
+                                Disco de Teleporte, causando 25 a 400 de dano (dano máximo atingido quando o demônio
+                                acerta todos os ataques)
+                            </td>
+                        </tr>
+                    </table>
+                    <h2>Team-Up</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th class="tecla">Passiva</th>
+                            <th class="nome-skill">Mestre dos Discos</th>
+                            <td>
+                                +15% de bônus de dano
+                            </td>
+                        </tr>
+                    </table>
+                </article>
+
+                <article class="transparent-box" id="como-jogar">
+                    <h2>Como Jogar</h2>
+                    <p>Magik é uma personagem versátil que brilha no combate Corpo a Corpo, combinando mobilidade
+                        e alto dano explosivo. Seu estilo de jogo gira em torno de
+                        entrar e sair do combate rapidamente eliminando alvos isolados, usando seus portais para se
+                        reposicionar e surpreender
+                        os inimigos. Ela pode abrir portais para flanquear adversários ou escapar de situações
+                        perigosas, tornando-a ótima para jogadores que gostam de ação rápida e estratégia.
+                        Magik exige atenção ao posicionamento, mas nas mãos certas, pode dominar o campo com estilo
+                        e agressividade.</p>
+
+                    <h2>Combos Rápidos</h2>
+                    <h3>250 de vida</h3>
+                    <p>Espada Espiritual -> Ataque Corpo a Corpo -> Corte de Magia (Sem Carga) -> Espada Espiritual
+                        -> Ataque
+                        Corpo a Corpo</p>
+                    <p>Corte de Magia (Carga Cheia) -> Disco de Teleporte -> Turbilhão de Eldritch -> Incursão
+                        Umbral</p>
+
+                    <p>Disco de Teleporte -> Turbilhão de Eldritch -> Incursão Umbral -> Espada Espiritual -> Ataque
+                        Corpo a Corpo</p>
+
+                    <p>Criança das Trevas -> Corte de Magia (Sem Carga) -> Incursão Umbral</p>
+
+                    <h3>275 de vida</h3>
+                    <p>Corte de Magia (Carga Cheia) -> Incursão Umbral -> Espada Espiritual</p>
+
+                    <p>Corte de Magia (Carga Cheia) -> Disco de Teleporte -> Turbilhão de Eldritch -> Incursão
+                        Umbral -> Ataque Corpo a Corpo</p>
+
+                    <p> Criança das Trevas -> Disco de Teleporte -> Turbilhão de Eldritch -> Incursão Umbral</p>
+
+                    <h3>300 de vida</h3>
+                    <p>Corte de Magia (Carga Cheia) -> Disco de Teleporte -> Turbilhão de Eldritch -> Incursão
+                        Umbral -> Espada Espiritual</p>
+
+                    <p>Corte de Magia (Carga Cheia) -> Incursão Umbral -> Espada Espiritual -> Ataque Corpo a Corpo
+                    </p>
+
+                    <p> Criança das Trevas -> Corte de Magia (Carga Cheia) -> Incursão Umbral</p>
+                </article>
+
+                <article class="transparent-box" id="skins">
+                    <h2>Skins</h2>
+
+                    <div class="d-flex justify-content-center flex-wrap" style="gap: 45px;">
+
+                        <div id="carouselPunk" class="carousel slide" data-bs-ride="carousel"
+                            style="width: 250px; height: 250px;">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_punkchild.webp"
+                                        class="d-block w-100 h-100" alt="Punkchild">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_rosy-resilience.webp"
+                                        class="d-block w-100 h-100" alt="Punkchild Rose">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPunk"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPunk"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+
+
+                        <div id="carouselArmor" class="carousel slide" data-bs-ride="carousel"
+                            style="width: 250px; height: 250px;">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_eldritch-armor.webp"
+                                        class="d-block w-100 h-100" alt="Eldritch Armor">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_frozen-demon.webp"
+                                        class="d-block w-100 h-100" alt="Frozen Demon">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselArmor"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselArmor"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+
+                        <div id="carouselAmethyst" class="carousel slide" data-bs-ride="carousel"
+                            style="width: 250px; height: 250px;">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_amethyst-armor.webp"
+                                        class="d-block w-100 h-100" alt="Amethyst Armor">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_retro-x-uniform.webp"
+                                        class="d-block w-100 h-100" alt="Retro X-Uniform">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAmethyst"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAmethyst"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </article>
+
+
+
+                <article class="transparent-box" id="contato">
+                    <h2>Contato</h2>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/borba__art/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/borbinha27" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arthur-borba-46b5a2312/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </article>
+            </main>
+        </div>
+        <!-- script do pop up abaixo caso deseje desativar -->
+        <script src="script.js"></script>
+        <!-- esse aqui em cima ó -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
