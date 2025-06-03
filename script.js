@@ -1,78 +1,131 @@
-  let scrollPosition = 0;
-  let isBodyLocked = false;
+let scrollPosition = 0;
+let isBodyLocked = false;
 
-  document.addEventListener('click', function (event) {
+// Adiciona funcionalidade ao navbar-burger
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+    $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+        });
+    });
+
+    // Implementação simples do carrossel
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const items = carousel.querySelectorAll('.carousel-item');
+        let currentItem = 0;
+        
+        carousel.querySelector('.carousel-next').addEventListener('click', () => {
+            items[currentItem].classList.remove('is-active');
+            currentItem = (currentItem + 1) % items.length;
+            items[currentItem].classList.add('is-active');
+        });
+        
+        carousel.querySelector('.carousel-prev').addEventListener('click', () => {
+            items[currentItem].classList.remove('is-active');
+            currentItem = (currentItem - 1 + items.length) % items.length;
+            items[currentItem].classList.add('is-active');
+        });
+    });
+});
+
+document.addEventListener('click', function (event) {
     createPopup(event.clientX, event.clientY);
-  });
+});
 
-  function createPopup(x, y) {
+function createPopup(x, y) {
     if (!isBodyLocked) {
-      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     }
 
     if (!document.body.classList.contains('body-locked')) {
-      document.body.classList.add('body-locked');
-      document.body.style.top = `-${scrollPosition}px`;
-      isBodyLocked = true;
+        document.body.classList.add('body-locked');
+        document.body.style.top = `-${scrollPosition}px`;
+        isBodyLocked = true;
     }
 
-    var popup = document.createElement('div');
-    popup.className = 'popup';
-
-    var randomOffsetX = (Math.random() * 200) - 100;
-    var randomOffsetY = (Math.random() * 200) - 100;
-
-    var posX = Math.max(10, Math.min(window.innerWidth - 220, x + randomOffsetX));
-    var posY = Math.max(10, Math.min(window.innerHeight - 150, y + randomOffsetY));
-
-    popup.style.left = `${posX}px`;
-    popup.style.top = `${posY}px`;
-
-    var qtd_question_mark = ["?", "??", "???", "????", "?????", "??????", "???????", "?????????"];
-    var question = qtd_question_mark[Math.floor(Math.random() * qtd_question_mark.length)];
-
-    var loading = [
-      "[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;&nbsp;0%",
-      "[█&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;10%",
-      "[██&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;20%",
-      "[███&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;30%",
-      "[████&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;40%",
-      "[█████&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;50%",
-      "[██████&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;60%",
-      "[███████&nbsp;&nbsp;&nbsp;]&nbsp;70%",
-      "[████████&nbsp;&nbsp;]&nbsp;80%",
-      "[█████████&nbsp;]&nbsp;90%",
-      "[██████████]&nbsp;99%"
-    ];
-
-    var loadingText = loading[Math.floor(Math.random() * loading.length)];
-
-    popup.innerHTML = `
-      <div class="card popup-card">
-          <img src="https://i.pinimg.com/736x/80/f1/77/80f177e52d4cea3ba457d66fe82fc7ed.jpg" class="card-img-top" alt="Warning sign">
-          <div class="card-body">
-              <h5 class="card-title">Atenção</h5>
-              <p class="card-text">Sistema invadido<br>Deseja obter nosso Antivírus ${question}</p>
-              <div class="buttons-container">
-                  <button type="button" class="btn btn-primary">Sim</button>
-                  <button type="button" class="btn btn-danger" data-bs-toggle="popover" 
-                          data-bs-title="Agradecemos a preferência" 
-                          data-bs-content="<div style='font-family: monospace; white-space: pre'>Carregando... ${loadingText}</div>"
-                          data-bs-html="true">
-                      Não
-                  </button>
-              </div>
-          </div>
-      </div>
+    const modal = document.createElement('div');
+    modal.className = 'modal is-active';
+    modal.innerHTML = `
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Atenção</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <img src="https://i.pinimg.com/736x/80/f1/77/80f177e52d4cea3ba457d66fe82fc7ed.jpg" style="width:120px;height:auto;display:block;margin:0 auto 1rem;">
+                <p class="card-text">Sistema invadido<br>Deseja obter nosso Antivírus ${getRandomQuestionMarks()}</p>
+                <div class="buttons">
+                    <button class="button is-primary">Sim</button>
+                    <button class="button is-danger" id="noButton">Não</button>
+                </div>
+            </section>
+        </div>
     `;
 
-    document.body.appendChild(popup);
+    document.body.appendChild(modal);
 
-    if (typeof bootstrap !== 'undefined') {
-      var popoverTrigger = popup.querySelector('[data-bs-toggle="popover"]');
-      new bootstrap.Popover(popoverTrigger, {
-        sanitize: false,
-        html: true
-      });
-    }
-  }
+    // Fechar modal
+    modal.querySelector('.modal-background, .delete').addEventListener('click', () => {
+        modal.remove();
+        document.body.classList.remove('body-locked');
+        window.scrollTo(0, scrollPosition);
+        isBodyLocked = false;
+    });
+
+    // Botão "Não" com notificação
+    modal.querySelector('#noButton').addEventListener('click', () => {
+        showNotification();
+        modal.remove();
+        document.body.classList.remove('body-locked');
+        window.scrollTo(0, scrollPosition);
+        isBodyLocked = false;
+    });
+}
+
+function getRandomQuestionMarks() {
+    const qtd_question_mark = ["?", "??", "???", "????", "?????", "??????", "???????", "?????????"];
+    return qtd_question_mark[Math.floor(Math.random() * qtd_question_mark.length)];
+}
+
+function showNotification() {
+    const loading = [
+        "[          ]  0%",
+        "[█         ] 10%",
+        "[██        ] 20%",
+        "[███       ] 30%",
+        "[████      ] 40%",
+        "[█████     ] 50%",
+        "[██████    ] 60%",
+        "[███████   ] 70%",
+        "[████████  ] 80%",
+        "[█████████ ] 90%",
+        "[██████████] 99%"
+    ];
+    
+    const loadingText = loading[Math.floor(Math.random() * loading.length)];
+    
+    const notification = document.createElement('div');
+    notification.className = 'notification is-danger';
+    notification.innerHTML = `
+        <button class="delete"></button>
+        <strong>Agradecemos a preferência</strong><br>
+        <div style="font-family: monospace; white-space: pre">Carregando... ${loadingText}</div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    notification.querySelector('.delete').addEventListener('click', () => {
+        notification.remove();
+    });
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}

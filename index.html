@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magik - Como Jogar</title>
+    
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="Magik_Icon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
 </head>
 
 <body>
@@ -23,28 +24,36 @@
             </header>
 
             <main>
-
-                <nav class="navbar navbar-expand-lg custom-navbar transparent-box">
-                    <div class="container-fluid">
-                        <h2 id="topicos">Tópicos Abordados</h2>
-                        <div class="collapse navbar-collapse" id="navbarTopics">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="magik-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#info-geral">Informações Gerais</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#habilidades">Habilidades</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#como-jogar">Como Jogar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#skins">Skins</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#contato">Contato</a>
-                                </li>
-                            </ul>
+                <nav class="navbar transparent-box" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarTopics">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div id="navbarTopics" class="navbar-menu">
+                        <div class="navbar-end">
+                            <h2 id="topicos">Tópicos Abordados</h2>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <ul class="navbar-dropdown" id="magik-menu">
+                                    <li class="navbar-item">
+                                        <a class="navbar-link text-light" href="#info-geral">Informações Gerais</a>
+                                    </li>
+                                    <li class="navbar-item">
+                                        <a class="navbar-link text-light" href="#habilidades">Habilidades</a>
+                                    </li>
+                                    <li class="navbar-item">
+                                        <a class="navbar-link text-light" href="#como-jogar">Como Jogar</a>
+                                    </li>
+                                    <li class="navbar-item">
+                                        <a class="navbar-link text-light" href="#skins">Skins</a>
+                                    </li>
+                                    <li class="navbar-item">
+                                        <a class="navbar-link text-light" href="#contato">Contato</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -282,79 +291,47 @@
                 <article class="transparent-box" id="skins">
                     <h2>Skins</h2>
 
-                    <div class="d-flex justify-content-center flex-wrap" style="gap: 45px;">
-
-                        <div id="carouselPunk" class="carousel slide" data-bs-ride="carousel"
-                            style="width: 250px; height: 250px;">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_punkchild.webp"
-                                        class="d-block w-100 h-100" alt="Punkchild">
+                    <div class="columns is-centered is-multiline" style="gap: 45px;">
+                        <div class="column is-one-third">
+                            <div class="carousel" id="carouselPunk">
+                                <div class="carousel-item is-active">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_punkchild.webp" alt="Punkchild">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_rosy-resilience.webp"
-                                        class="d-block w-100 h-100" alt="Punkchild Rose">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_rosy-resilience.webp" alt="Punkchild Rose">
                                 </div>
+                                <button class="carousel-prev">‹</button>
+                                <button class="carousel-next">›</button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPunk"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPunk"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
                         </div>
 
-
-                        <div id="carouselArmor" class="carousel slide" data-bs-ride="carousel"
-                            style="width: 250px; height: 250px;">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_eldritch-armor.webp"
-                                        class="d-block w-100 h-100" alt="Eldritch Armor">
+                        <div class="column is-one-third">
+                            <div class="carousel" id="carouselArmor">
+                                <div class="carousel-item is-active">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_eldritch-armor.webp" alt="Eldritch Armor">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_frozen-demon.webp"
-                                        class="d-block w-100 h-100" alt="Frozen Demon">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_frozen-demon.webp" alt="Frozen Demon">
                                 </div>
+                                <button class="carousel-prev">‹</button>
+                                <button class="carousel-next">›</button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselArmor"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselArmor"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
                         </div>
 
-                        <div id="carouselAmethyst" class="carousel slide" data-bs-ride="carousel"
-                            style="width: 250px; height: 250px;">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_amethyst-armor.webp"
-                                        class="d-block w-100 h-100" alt="Amethyst Armor">
+                        <div class="column is-one-third">
+                            <div class="carousel" id="carouselAmethyst">
+                                <div class="carousel-item is-active">
+                                    <img src="https://rivalskins.com/nitropack_static/XzdGixxVOsHOPpHksEwGcgLushIiVnPG/assets/images/optimized/rev-8ff134d/rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_amethyst-armor.webp" alt="Amethyst Armor">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_retro-x-uniform.webp"
-                                        class="d-block w-100 h-100" alt="Retro X-Uniform">
+                                    <img src="https://rivalskins.com/wp-content/uploads/marvel-assets/items/costume/13/img_icon_retro-x-uniform.webp" alt="Retro X-Uniform">
                                 </div>
+                                <button class="carousel-prev">‹</button>
+                                <button class="carousel-next">›</button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAmethyst"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAmethyst"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
                         </div>
-
                     </div>
                 </article>
-
-
 
                 <article class="transparent-box" id="contato">
                     <h2>Contato</h2>
@@ -372,10 +349,6 @@
                 </article>
             </main>
         </div>
-        <!-- script do pop up abaixo caso deseje desativar -->
         <script src="script.js"></script>
-        <!-- esse aqui em cima ó -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
